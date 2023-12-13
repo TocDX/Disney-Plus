@@ -38,10 +38,28 @@ const Row = ({ title, id, fetchUrl }) => {
         loop={true}
         navigation
         pagination={{ clickable: true }}
+        breakpoints={{
+          1378: {
+            slidesPerView: 6,
+            slidesPerGroup: 6,
+          },
+          998: {
+            slidesPerView: 5,
+            slidesPerGroup: 5,
+          },
+          625: {
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+          },
+          0: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
+        }}
       >
         <Content id={id}>
           {movies.map((movie) => (
-            <SwiperSlide>
+            <SwiperSlide key={movie.id}>
               <Wrap>
                 <img
                   key={movie.id}
